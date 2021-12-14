@@ -2,7 +2,11 @@
     "name": "original-node-red-flows",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-contrib-homebridge-automation": "0.0.79",
+        "node-red-contrib-iss-location": "4.5.2",
+        "node-red-dashboard": "3.0.4"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows.json",
