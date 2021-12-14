@@ -1,0 +1,659 @@
+[
+    {
+        "id": "3478acc816468152",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "acbcba2d3ae595b9",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "44bccb94618a6e0a",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "05fa8d8bde450c9c",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "44bccb94618a6e0a",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3080113d2eb410c9",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "77e42e1dfce7316f",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "44bccb94618a6e0a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1333139bc7ea976e",
+        "type": "hb-conf",
+        "username": "031-45-154"
+    },
+    {
+        "id": "2a3df2bdea53fd04",
+        "type": "debug",
+        "z": "3478acc816468152",
+        "name": "Blink(1) Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1330,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "fd868eedc7f429bb",
+        "type": "inject",
+        "z": "3478acc816468152",
+        "name": "Daily Standup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 08 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"pname\":\"blue_flash\"}",
+        "payloadType": "json",
+        "x": 810,
+        "y": 560,
+        "wires": [
+            [
+                "92269eae512c7c49"
+            ]
+        ]
+    },
+    {
+        "id": "92269eae512c7c49",
+        "type": "http request",
+        "z": "3478acc816468152",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "http://kristin-mac.local:8934/blink1/pattern/play",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1130,
+        "y": 620,
+        "wires": [
+            [
+                "2a3df2bdea53fd04"
+            ]
+        ]
+    },
+    {
+        "id": "f40cabd988d8e8e7",
+        "type": "inject",
+        "z": "3478acc816468152",
+        "name": "Weekly Leadership Call",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "30 11 * * 3",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"pname\":\"green_flash\"}",
+        "payloadType": "json",
+        "x": 810,
+        "y": 640,
+        "wires": [
+            [
+                "92269eae512c7c49"
+            ]
+        ]
+    },
+    {
+        "id": "c324aa9b105ec4e0",
+        "type": "ui_button",
+        "z": "3478acc816468152",
+        "name": "",
+        "group": "05fa8d8bde450c9c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Hey Kristin!",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"pname\": \"white_flash\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 790,
+        "y": 380,
+        "wires": [
+            [
+                "92269eae512c7c49"
+            ]
+        ]
+    },
+    {
+        "id": "62b928fb47117704",
+        "type": "inject",
+        "z": "3478acc816468152",
+        "name": "Stand up!",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 11 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"pname\":\"policecar\"}",
+        "payloadType": "json",
+        "x": 790,
+        "y": 820,
+        "wires": [
+            [
+                "92269eae512c7c49"
+            ]
+        ]
+    },
+    {
+        "id": "f44c855abd70f108",
+        "type": "iss-location",
+        "z": "3478acc816468152",
+        "method": "ISSLocationNow",
+        "name": "",
+        "x": 830,
+        "y": 160,
+        "wires": [
+            [
+                "8aa3a342fede5417"
+            ]
+        ]
+    },
+    {
+        "id": "13e5d88da93997ea",
+        "type": "debug",
+        "z": "3478acc816468152",
+        "name": "ISS Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1430,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "39f6db27adb59121",
+        "type": "inject",
+        "z": "3478acc816468152",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 630,
+        "y": 180,
+        "wires": [
+            [
+                "f44c855abd70f108"
+            ]
+        ]
+    },
+    {
+        "id": "8aa3a342fede5417",
+        "type": "function",
+        "z": "3478acc816468152",
+        "name": "",
+        "func": "\nlet lat = msg.payload.lat;\nlet lon = msg.payload.lon;\n\nif (lat > 47 && lon < 48 && lon > -123 && lon < -122) {\n    msg.payload.overhead = true;\n} else {\n    msg.payload.overhead = false;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1000,
+        "y": 220,
+        "wires": [
+            [
+                "090865e4bd434fd0",
+                "13e5d88da93997ea"
+            ]
+        ]
+    },
+    {
+        "id": "090865e4bd434fd0",
+        "type": "switch",
+        "z": "3478acc816468152",
+        "name": "",
+        "property": "payload.overhead",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1160,
+        "y": 300,
+        "wires": [
+            [
+                "0e8faccb4618df72"
+            ]
+        ]
+    },
+    {
+        "id": "0e8faccb4618df72",
+        "type": "change",
+        "z": "3478acc816468152",
+        "name": "Space Jam",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"pname\": \"space_jam\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1360,
+        "y": 300,
+        "wires": [
+            [
+                "92269eae512c7c49"
+            ]
+        ]
+    },
+    {
+        "id": "df0a0fc667dd076c",
+        "type": "inject",
+        "z": "3478acc816468152",
+        "name": "Stand up!",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 14 * * 1,2,3,4,5",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"pname\":\"policecar\"}",
+        "payloadType": "json",
+        "x": 790,
+        "y": 860,
+        "wires": [
+            [
+                "92269eae512c7c49"
+            ]
+        ]
+    },
+    {
+        "id": "438296dc1ffb9ba4",
+        "type": "hb-control",
+        "z": "3478acc816468152",
+        "name": "Reading Lamp",
+        "Homebridge": "homebridge",
+        "Manufacturer": "Signify Netherlands B.V.",
+        "Service": "Lightbulb",
+        "device": "homebridge0E:CC:96:03:65:AESignify Netherlands B.V.Reading Lamp00000043",
+        "conf": "1333139bc7ea976e",
+        "outputs": 0,
+        "x": 670,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "200d8337e4fcfaf0",
+        "type": "inject",
+        "z": "3478acc816468152",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"On\":true,\"Brightness\":80}",
+        "payloadType": "json",
+        "x": 420,
+        "y": 960,
+        "wires": [
+            [
+                "438296dc1ffb9ba4"
+            ]
+        ]
+    },
+    {
+        "id": "0bde0e805c62ffb3",
+        "type": "hb-status",
+        "z": "3478acc816468152",
+        "name": "Reading Lamp",
+        "Homebridge": "homebridge",
+        "Manufacturer": "Signify Netherlands B.V.",
+        "Service": "Lightbulb",
+        "device": "homebridge0E:CC:96:03:65:AESignify Netherlands B.V.Reading Lamp00000043",
+        "conf": "1333139bc7ea976e",
+        "x": 1230,
+        "y": 960,
+        "wires": [
+            [
+                "c104dc602b71b3fd"
+            ]
+        ]
+    },
+    {
+        "id": "c104dc602b71b3fd",
+        "type": "debug",
+        "z": "3478acc816468152",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1500,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "a6c8f1bac9a2b662",
+        "type": "inject",
+        "z": "3478acc816468152",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 990,
+        "y": 960,
+        "wires": [
+            [
+                "0bde0e805c62ffb3"
+            ]
+        ]
+    },
+    {
+        "id": "1a1652fddff8b1c5",
+        "type": "inject",
+        "z": "acbcba2d3ae595b9",
+        "name": "Hey!",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "20 07 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "531021f8e688f063"
+            ]
+        ]
+    },
+    {
+        "id": "531021f8e688f063",
+        "type": "debug",
+        "z": "acbcba2d3ae595b9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d72065676bb439b7",
+        "type": "inject",
+        "z": "acbcba2d3ae595b9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 560,
+        "y": 660,
+        "wires": [
+            [
+                "353a5420a6d1419f"
+            ]
+        ]
+    },
+    {
+        "id": "353a5420a6d1419f",
+        "type": "http request",
+        "z": "acbcba2d3ae595b9",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://roberto:3000/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 750,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    }
+]
